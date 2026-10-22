@@ -1,0 +1,32 @@
+# Credenziali: config.json contiene la password di Gmail. MAI su GitHub.
+config.json
+
+# Registro degli eventi generato da app.py
+eventi.csv
+
+# Materiale solo per il formatore: resta sul suo PC, mai su GitHub
+soluzioni/
+docs/
+tools/
+demo/
+
+# Modelli esportati da Teachable Machine (si rigenerano)
+**/modello/*.json
+**/modello/*.bin
+**/modello/*/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Sistema operativo ed editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Strumenti dell'editor
+.serena/

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Antifurto IA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Antifurto IA</h1>
+    <!-- Lo stato del sistema: ATTIVO, ALLARME, DISATTIVATO... -->
+    <span id="stato" class="pill">SPENTO</span>
+  </header>
+
+  <main>
+    <!-- Colonna sinistra: la webcam -->
+    <section class="scheda">
+      <h2>Webcam</h2>
+      <div id="webcam" class="webcam">
+        <p class="suggerimento">Premi "Avvia" e consenti l'uso della webcam.</p>
+      </div>
+      <div class="pulsanti">
+        <button id="avvia">Avvia</button>
+        <button id="ferma" class="secondario">Ferma allarme</button>
+      </div>
+      <p class="nota">Privacy: punta la webcam sul banco, su oggetti o su foto di animali,
+        mai sul viso. Le immagini restano nel browser e non vengono salvate.</p>
+    </section>
+
+    <!-- Colonna destra: cosa vede il modello -->
+    <section class="scheda">
+      <h2>Cosa vede l'intelligenza artificiale</h2>
+      <p id="scenario" class="nota">Scenario: -</p>
+      <p class="classe-riconosciuta">
+        Classe: <strong id="classe">-</strong>
+      </p>
+      <!-- Qui antifurto.js crea una barra di confidenza per ogni classe -->
+      <div id="barre"></div>
+
+      <h2>Mail</h2>
+      <p id="stato-mail">Nessun allarme finora.</p>
+
+      <!-- MISSIONE 5: aggiungi qui un elemento per il contatore degli intrusi,
+           per esempio: <p>Intrusi rilevati: <strong id="contatore">0</strong></p> -->
+    </section>
+  </main>
+
+  <!-- Librerie di Teachable Machine (TensorFlow.js), dal CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.5/dist/teachablemachine-image.min.js"></script>
+
+  <!-- Il nostro codice -->
+  <script src="simulatore.js"></script>
+  <script src="antifurto.js"></script>
+</body>
+</html>

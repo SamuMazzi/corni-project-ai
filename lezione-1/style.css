@@ -1,0 +1,206 @@
+/* Antifurto IA - stile della pagina */
+
+:root {
+  /* MISSIONE 3: cambia il colore dell'allarme.
+     Puoi usare un nome (orange), un codice esadecimale (#ff00ff)
+     o rgb(255, 0, 255). */
+  --colore-allarme: #e01b24;
+
+  --sfondo: #f4f5f7;
+  --scheda: #ffffff;
+  --testo: #1d2330;
+  --tenue: #5f6b7a;
+  --accento: #2563eb;
+  --ok: #16a34a;
+  --bordo: #d9dde3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--sfondo);
+  color: var(--testo);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--testo);
+  color: white;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+header nav a {
+  color: white;
+  margin-left: 1rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.scheda {
+  background: var(--scheda);
+  border: 1px solid var(--bordo);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.scheda h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.scheda h2 + * {
+  margin-top: 0;
+}
+
+.webcam {
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e7e9ee;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.webcam canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.suggerimento {
+  color: var(--tenue);
+  padding: 1rem;
+  text-align: center;
+}
+
+.pulsanti {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+button {
+  font: inherit;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--accento);
+  color: white;
+  cursor: pointer;
+}
+
+button.secondario {
+  background: #e7e9ee;
+  color: var(--testo);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.nota {
+  color: var(--tenue);
+  font-size: 0.9rem;
+}
+
+.classe-riconosciuta {
+  font-size: 1.3rem;
+}
+
+/* Una riga per ogni classe: nome, barra, percentuale */
+.barra {
+  display: grid;
+  grid-template-columns: 7rem 1fr 3.5rem;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.4rem 0;
+}
+
+.barra .fondo {
+  height: 14px;
+  background: #e7e9ee;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.barra .riempimento {
+  height: 100%;
+  width: 0%;
+  background: var(--accento);
+  transition: width 0.15s;
+}
+
+/* Le classi autorizzate hanno la barra verde */
+.barra.autorizzata .riempimento {
+  background: var(--ok);
+}
+
+.barra .valore {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Stato del sistema in alto a destra */
+.pill {
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  background: #5f6b7a;
+  font-weight: bold;
+}
+
+.pill.attivo {
+  background: var(--ok);
+}
+
+.pill.allarme {
+  background: var(--colore-allarme);
+}
+
+.pill.disattivato {
+  background: #ca8a04;
+}
+
+/* ALLARME: tutto lo schermo lampeggia */
+body.allarme {
+  animation: lampeggia 0.5s infinite alternate;
+}
+
+@keyframes lampeggia {
+  from {
+    background: var(--sfondo);
+  }
+  to {
+    background: var(--colore-allarme);
+  }
+}
+
+/* Banner di errore (modello non trovato, webcam negata...) */
+.errore {
+  background: #fde8e8;
+  color: #8a1c1c;
+  border: 1px solid #f5b5b5;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
