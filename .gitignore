@@ -14,6 +14,10 @@ demo/
 **/modello/*.json
 **/modello/*.bin
 **/modello/*/
+# ...tranne il modello del corso, così funziona anche se la rete blocca Google
+!lezione-1/modello/model.json
+!lezione-1/modello/metadata.json
+!lezione-1/modello/model.weights.bin
 
 # Python
 __pycache__/

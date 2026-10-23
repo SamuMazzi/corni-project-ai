@@ -3,7 +3,7 @@
   "soglia": 0.85,
 
   "animali": {
-    "modello": "https://teachablemachine.withgoogle.com/models/INCOLLA_QUI_IL_CODICE/",
+    "modello": "modello/",
     "classi_autorizzate": ["autorizzato", "nessuno"]
   },
 

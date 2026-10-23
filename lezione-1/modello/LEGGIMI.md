@@ -1,5 +1,10 @@
 # Cartella del modello
 
+Qui c'è già il **modello del corso** (classi `Autorizzato` e `Intruso`,
+l'animale autorizzato è il beagle): `config.esempio.json` lo usa con
+`"modello": "modello/"`, quindi funziona anche senza collegarsi a
+Teachable Machine.
+
 Se non vuoi (o non puoi) usare il link "Upload my model" di Teachable
 Machine, puoi mettere qui il modello esportato.
 

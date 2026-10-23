@@ -31,8 +31,10 @@ mano e oggetti.
 
 1. Apri la cartella della lezione del giorno, per esempio `lezione-1`.
 2. Copia `config.esempio.json` e rinomina la copia in **`config.json`**.
-3. Apri `config.json` e incolla il link del vostro modello di Teachable
-   Machine nel campo `"modello"` (vedi sotto).
+3. Il modello del corso è già nella cartella `modello`: non serve
+   cambiare niente. Se avete addestrato un modello vostro, incollate il
+   suo link di Teachable Machine nel campo `"modello"` di `config.json`
+   (vedi sotto).
 4. Apri un terminale **in quella cartella** (in Esplora file: clic sulla
    barra dell'indirizzo, scrivi `cmd` e premi Invio) e scrivi:
 
