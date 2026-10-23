@@ -1,0 +1,5 @@
+# Solo per gli strumenti del formatore (tools/), NON per gli studenti.
+# Installa con:  pip install -r tools/requirements.txt
+datasets>=2.14
+huggingface_hub>=0.20
+Pillow>=9.0

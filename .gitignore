@@ -7,7 +7,7 @@ eventi.csv
 # Materiale solo per il formatore: resta sul suo PC, mai su GitHub
 soluzioni/
 docs/
-tools/
+tools/dataset/
 demo/
 
 # Modelli esportati da Teachable Machine (si rigenerano)
