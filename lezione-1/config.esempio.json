@@ -3,7 +3,7 @@
   "soglia": 0.85,
 
   "animali": {
-    "modello": "modello/",
+    "modello": "https://teachablemachine.withgoogle.com/models/Tj967bjie/",
     "classi_autorizzate": ["autorizzato", "nessuno"]
   },
 
@@ -17,7 +17,7 @@
   "mail": {
     "server_smtp": "smtp.gmail.com",
     "porta": 465,
-    "mittente": "",
+    "mittente": "samuelemazziapp@gmail.com",
     "password_app": "",
     "destinatario": ""
   },
