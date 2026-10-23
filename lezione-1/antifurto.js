@@ -55,6 +55,10 @@ async function avvia() {
       // simulatore.js: pulsanti al posto di webcam e modello (vedi README)
       modello = creaModelloSimulato(config.scenario);
       webcam = creaWebcamSimulata();
+    } else if (modalitaFoto()) {
+      // foto.js: modello vero, ma analizza una foto al posto della webcam
+      modello = avvolgiModelloFoto(await caricaModello(config.modello));
+      webcam = creaWebcamFoto();
     } else {
       modello = await caricaModello(config.modello);
       webcam = await accendiWebcam();
@@ -103,7 +107,10 @@ async function accendiWebcam() {
   try {
     await nuovaWebcam.setup();
   } catch (errore) {
-    throw new Error("Webcam non disponibile: controlla di aver dato il permesso al browser.");
+    throw new Error(
+      "Webcam non disponibile: controlla di aver dato il permesso al browser. " +
+      "Senza webcam apri http://localhost:8000/?foto e usa delle foto."
+    );
   }
   await nuovaWebcam.play();
   return nuovaWebcam;
@@ -135,6 +142,17 @@ function trovaMigliore(predizioni) {
 }
 
 // Qui si decide se far scattare l'allarme.
+// True se la classe è tra quelle autorizzate in config.json.
+// Confrontiamo in minuscolo: "Autorizzato" e "autorizzato" vanno bene
+// tutti e due, così un nome scritto in modo diverso su Teachable Machine
+// non fa scattare l'allarme per sbaglio.
+function eAutorizzata(nomeClasse) {
+  const autorizzate = config.classi_autorizzate.map(function (nome) {
+    return nome.toLowerCase();
+  });
+  return autorizzate.includes(nomeClasse.toLowerCase());
+}
+
 function valutaPredizioni(predizioni) {
   const migliore = trovaMigliore(predizioni);
   document.getElementById("classe").textContent = migliore.className;
@@ -158,7 +176,7 @@ function valutaPredizioni(predizioni) {
   }
 
   // Classe autorizzata: tutto tranquillo.
-  if (config.classi_autorizzate.includes(migliore.className)) {
+  if (eAutorizzata(migliore.className)) {
     return;
   }
 
@@ -306,7 +324,7 @@ function creaBarre(nomiClassi) {
   for (const nome of nomiClassi) {
     const riga = document.createElement("div");
     riga.className = "barra";
-    if (config.classi_autorizzate.includes(nome)) {
+    if (eAutorizzata(nome)) {
       riga.classList.add("autorizzata");
     }
     riga.innerHTML =

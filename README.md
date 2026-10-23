@@ -45,6 +45,11 @@ mano e oggetti.
 
 Per fermare il server: **Ctrl + C** nel terminale.
 
+**Non hai la webcam?** Apri `http://localhost:8000/?foto`: il modello
+analizza una foto invece del video. Premi **Scegli foto**, trascina
+un'immagine nel riquadro oppure copiala dal web (tasto destro > *Copia
+immagine*) e premi **Ctrl + V**.
+
 **Non hai ancora un modello?** Apri `http://localhost:8000/?simula`: al
 posto della webcam compaiono dei pulsanti per fingere di vedere ogni classe.
 
@@ -83,6 +88,7 @@ lezione-1/                 antifurto nel browser
   index.html               la pagina dell'antifurto
   antifurto.js             il codice della pagina (webcam, modello, allarme)
   simulatore.js            i pulsanti di ?simula (non serve modificarlo)
+  foto.js                  la modalità ?foto, senza webcam (non serve modificarlo)
   style.css                l'aspetto della pagina
   config.esempio.json      modello di config.json
   modello/                 dove mettere il modello scaricato (facoltativo)

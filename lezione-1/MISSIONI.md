@@ -10,8 +10,10 @@ Dopo ogni modifica:
 - se hai cambiato `app.py`: ferma il server (Ctrl + C) e riavvialo con
   `python app.py`.
 
-Consiglio: per provare le missioni senza modello e senza webcam apri
-`http://localhost:8000/?simula` e usa i pulsanti delle classi.
+Senza webcam apri `http://localhost:8000/?foto` e usa delle foto
+(scegli un file, trascinalo o incollalo con Ctrl + V). Per provare le
+missioni senza modello apri `http://localhost:8000/?simula` e usa i
+pulsanti delle classi.
 
 ---
 
@@ -26,8 +28,8 @@ Consiglio: per provare le missioni senza modello e senza webcam apri
 - **Suggerimento:** la soglia è un numero tra 0 e 1. Con 0.5 basta poco
   per far scattare l'allarme, con 0.99 quasi mai. Prova almeno tre valori.
 - **Come verificare:** la soglia compare nella riga "Scenario" della
-  pagina. Mostra alla webcam un'immagine "difficile" (per esempio una
-  foto scura) e guarda se l'allarme scatta o no con soglie diverse.
+  pagina. Mostra al modello un'immagine "difficile" (per esempio una
+  foto scura o un animale che somiglia al beagle) e guarda se l'allarme scatta o no con soglie diverse.
 
 ### Missione 2: il suono della sirena
 

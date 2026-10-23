@@ -75,6 +75,9 @@ missioni.
 Vedrai la parola `await`: vuol dire "aspetta che questa operazione
 finisca" (scaricare un file o accendere la webcam richiede tempo).
 
+Senza webcam si usa `?foto` (file `foto.js`): al posto della telecamera
+c'è una foto, ma il resto del programma è identico.
+
 **3. Il ciclo: `ciclo()`.** È come il `loop()` di Arduino o un
 `while (true)`: si ripete circa 30 volte al secondo.
 
