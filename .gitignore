@@ -18,6 +18,9 @@ demo/
 !lezione-1/modello/model.json
 !lezione-1/modello/metadata.json
 !lezione-1/modello/model.weights.bin
+!lezione-2/modello/model.json
+!lezione-2/modello/metadata.json
+!lezione-2/modello/model.weights.bin
 
 # Python
 __pycache__/

@@ -9,9 +9,10 @@ Un progetto in 3 lezioni per costruire un antifurto che **riconosce** chi
    HuskyLens, buzzer e matrice LED.
 3. **Lezione 3:** la dashboard con tabelle, contatori e grafici.
 
-Privacy prima di tutto: **non inquadriamo mai volti**. I modelli si
+Privacy prima di tutto: **la webcam non inquadra mai volti**. I modelli si
 addestrano con immagini di animali (da un dataset pubblico), gesti della
-mano e oggetti.
+mano e oggetti. Solo la HuskyLens (lezione 2) riconosce i volti, e lo fa
+tutto al suo interno: al computer arriva solo un numero, nessuna immagine.
 
 ## Scaricare il progetto
 
@@ -31,10 +32,11 @@ mano e oggetti.
 
 1. Apri la cartella della lezione del giorno, per esempio `lezione-1`.
 2. Copia `config.esempio.json` e rinomina la copia in **`config.json`**.
-3. Il modello del corso è già nella cartella `modello`: non serve
-   cambiare niente. Se avete addestrato un modello vostro, incollate il
-   suo link di Teachable Machine nel campo `"modello"` di `config.json`
-   (vedi sotto).
+3. `config.json` usa già il modello del corso: non serve cambiare niente.
+   Se avete addestrato un modello vostro, incollate il suo link di
+   Teachable Machine nel campo `"modello"` (vedi sotto). Se la rete blocca
+   Teachable Machine, scrivete `"modello": "modello/"`: il modello del
+   corso è anche nella cartella `modello`.
 4. Apri un terminale **in quella cartella** (in Esplora file: clic sulla
    barra dell'indirizzo, scrivi `cmd` e premi Invio) e scrivi:
 
@@ -73,7 +75,8 @@ una password.
 | `password_gesti` | (scenario gesti, dalla lezione 2) la sequenza di gesti che disattiva l'allarme |
 | `secondi_disattivazione` | per quanti secondi il sistema resta disattivato |
 | `mail` | i dati di Gmail (li completa il formatore) |
-| `cooldown_mail_secondi` | tempo minimo tra due mail |
+| `ntfy` | (dalla lezione 2) `canale`: il nome del canale ntfy per le notifiche sul telefono. Vuoto = notifiche spente |
+| `cooldown_mail_secondi` | tempo minimo tra due mail (e tra due notifiche) |
 
 **I due scenari:**
 
@@ -99,7 +102,7 @@ lezione-1/                 antifurto nel browser
 
 lezione-2/                 come lezione-1 (completa) + Arduino e HuskyLens
   arduino/antifurto_huskylens/        sketch con HuskyLens
-  arduino/antifurto_senza_huskylens/  sketch con un pulsante al posto di HuskyLens
+  arduino/antifurto_senza_huskylens/  sketch senza HuskyLens (pulsante o comandi)
   requirements.txt                    pyserial
 
 lezione-3/                 come lezione-2 (completa) + dashboard
@@ -121,6 +124,11 @@ python app.py --seriale COM3
 Al posto di `COM3` metti la porta del tuo Arduino. Se non la sai, scrivi
 solo `python app.py --seriale` e scegli dall'elenco. Prima di avviare
 `app.py` chiudi il Monitor seriale dell'IDE Arduino.
+
+Buzzer e pulsante non sono obbligatori: senza buzzer la sirena lampeggia
+sulla matrice LED, e al posto del pulsante puoi scrivere i comandi
+(`INTRUSO`, `AUTORIZZATO`, `NESSUNO`, `ID=3`, `ALLARME`, `STOP`) nel
+terminale di `app.py`.
 
 ## Problemi?
 
