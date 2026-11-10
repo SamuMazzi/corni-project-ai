@@ -1,0 +1,2 @@
+# Serve solo per collegare l'Arduino (python app.py --seriale)
+pyserial>=3.5

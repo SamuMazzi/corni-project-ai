@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard Antifurto</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <header>
+    <h1>Dashboard antifurto</h1>
+    <nav><a href="index.html">Antifurto</a></nav>
+    <!-- Diventa verde se il server risponde, rossa se non risponde -->
+    <span id="collegamento" class="pill">Collegamento...</span>
+  </header>
+
+  <main class="dashboard">
+
+    <!-- MISSIONE 2: stato del sistema -->
+    <section class="scheda">
+      <h2>Stato del sistema</h2>
+      <div id="stato-sistema">
+        <p class="vuoto">MISSIONE 2: mostra qui se il sistema è attivo o in allarme.</p>
+      </div>
+    </section>
+
+    <!-- MISSIONE 5: filtri -->
+    <section class="scheda">
+      <h2>Filtri</h2>
+      <div class="filtri">
+        <label>Origine
+          <select id="filtro-origine">
+            <option value="tutte">tutte</option>
+            <option value="webcam">webcam</option>
+            <option value="huskylens">huskylens</option>
+            <option value="simulatore">simulatore</option>
+          </select>
+        </label>
+        <label>Periodo
+          <select id="filtro-periodo">
+            <option value="tutto">tutto</option>
+            <option value="ora">ultima ora</option>
+            <option value="oggi">oggi</option>
+            <option value="settimana">ultimi 7 giorni</option>
+          </select>
+        </label>
+        <!-- MISSIONE 6: esportazione CSV -->
+        <button id="esporta">Esporta CSV</button>
+      </div>
+      <p class="nota">Eventi mostrati: <strong id="numero-eventi">0</strong></p>
+    </section>
+
+    <!-- MISSIONE 3: contatori per classe -->
+    <section class="scheda">
+      <h2>Eventi per classe</h2>
+      <div id="contatori" class="contatori">
+        <p class="vuoto">MISSIONE 3: un riquadro con il numero di eventi per ogni classe.</p>
+      </div>
+    </section>
+
+    <!-- MISSIONE 4: grafico degli eventi nel tempo -->
+    <section class="scheda larga">
+      <h2>Eventi nel tempo</h2>
+      <div class="contenitore-grafico">
+        <canvas id="grafico"></canvas>
+      </div>
+      <p class="vuoto" id="grafico-vuoto">MISSIONE 4: un grafico a barre con Chart.js.</p>
+    </section>
+
+    <!-- MISSIONE 1: tabella degli ultimi eventi -->
+    <section class="scheda larga">
+      <h2>Ultimi eventi</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Data e ora</th>
+            <th>Origine</th>
+            <th>Classe</th>
+            <th>Confidenza</th>
+            <th>Mail</th>
+          </tr>
+        </thead>
+        <tbody id="tabella-eventi">
+          <tr><td colspan="5" class="vuoto">MISSIONE 1: qui le righe degli eventi.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Aiuto: com'è fatto un evento. Puoi toglierlo quando hai finito. -->
+    <section class="scheda larga">
+      <h2>Ultimo evento ricevuto (dati grezzi)</h2>
+      <pre id="ultimo-evento">nessun evento</pre>
+    </section>
+  </main>
+
+  <!-- Chart.js per i grafici, dal CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

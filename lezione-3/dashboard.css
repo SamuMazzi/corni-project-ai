@@ -1,0 +1,106 @@
+/* Dashboard - stili in più rispetto a style.css */
+
+main.dashboard {
+  max-width: 1200px;
+}
+
+/* Le schede "larghe" occupano tutta la riga */
+.scheda.larga {
+  grid-column: 1 / -1;
+}
+
+.vuoto {
+  color: var(--tenue);
+  font-style: italic;
+}
+
+.filtri {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 1rem;
+}
+
+.filtri label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+}
+
+select {
+  font: inherit;
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: 1px solid var(--bordo);
+}
+
+/* Tabella degli eventi */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--bordo);
+}
+
+/* Le tabelle larghe scorrono dentro la scheda sui telefoni */
+.scheda.larga {
+  overflow-x: auto;
+}
+
+/* Riquadri dei contatori: un numero grande con il nome sotto */
+.contatori {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 0.75rem;
+}
+
+.contatore {
+  background: var(--sfondo);
+  border-radius: 8px;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.contatore .numero {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Il grafico ha bisogno di un contenitore con un'altezza */
+.contenitore-grafico {
+  position: relative;
+  height: 280px;
+}
+
+/* Stato del sistema: un riquadro grande e colorato */
+.stato-grande {
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  background: var(--ok);
+}
+
+.stato-grande.allarme {
+  background: var(--colore-allarme);
+}
+
+pre {
+  background: var(--sfondo);
+  padding: 0.75rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.contatori .vuoto {
+  grid-column: 1 / -1;
+}
